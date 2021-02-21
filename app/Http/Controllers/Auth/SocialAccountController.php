@@ -17,7 +17,6 @@ class SocialAccountController extends Controller
 
     public function redirectToProvider($provider)
     {
-        //dd(Socialite::driver($provider)->redirect());
         return Socialite::driver($provider)->redirect();
     }
 
@@ -36,15 +35,12 @@ class SocialAccountController extends Controller
         
         // $authUser must return a User::class instance
         $authUser = $this->findOrCreateUser($user, $provider);
-        // dump($user, $authUser->id);
 
         Auth::loginUsingId($authUser->id, true);
         
         return redirect()->route($this->dashboard)->with('status', 'Login Success');
 
-        
-
-        return redirect($this->redirectSocialiteTo);
+        // return redirect($this->redirectSocialiteTo);
     }
 
     public function findOrCreateUser($socialUser, $provider)

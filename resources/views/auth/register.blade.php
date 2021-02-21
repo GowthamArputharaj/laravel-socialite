@@ -75,6 +75,11 @@
                     <i class="fa fa-twitter"></i>
                     Twitter
                 </a>
+
+                <a href="{{ route('git.user.redirect') }}" class="ml-4 fb-redir">
+                    <i class="fa fa-github"></i>
+                    Github
+                </a>
             </div>
         </form>
     </x-auth-card>

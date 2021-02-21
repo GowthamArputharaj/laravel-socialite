@@ -31,8 +31,8 @@ return [
     ],
 
     'facebook' => [
-        'client_id' => '542413709982825',
-        'client_secret' => '704af9cc9237235b1e297635e952ddad',
+        'client_id' => env('FACEBOOK_ID'),
+        'client_secret' => env('FACEBOOK_SECRET_KEY'),
         'redirect' => 'https://www.localhost/projects/laravel-socialite/public/login/facebook/callback',
     ],
 
@@ -40,5 +40,11 @@ return [
         'client_id' => env('TWITTER_ID'),
         'client_secret' => env('TWITTER_SECRET_KEY'),
         'redirect' => 'https://www.localhost/projects/laravel-socialite/public/login/twitter/callback',
+    ],
+
+    'github' => [
+        'client_id' => env('GITHUB_APP_KEY'),
+        'client_secret' => env('GITHUB_APP_SECRET'),
+        'redirect' => env('GITHUB_REDIRECT'),
     ],
 ];
