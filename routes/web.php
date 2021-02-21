@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\SocialAccountController;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +24,15 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::get('/test', function() {
+    $test = [];
+    $test[] = Hash::make('12345678');
+    $test[] = Hash::check('12345678', $test[0]);
+    dd($test);
+
+});
+Route::get('login/{provider}', 'App\Http\Controllers\Auth\SocialAccountController@redirectToProvider')->name('redirectToProvider');
+
+Route::get('login/{provider}/callback', 'App\Http\Controllers\Auth\SocialAccountController@handleProviderCallback');
+

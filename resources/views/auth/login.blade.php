@@ -1,4 +1,13 @@
 <x-guest-layout>
+    <style>
+        .fb-redir {
+            padding: 4px 7px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin-right: auto;
+        }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
@@ -41,6 +50,11 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
+                <a href="{{ route('redirectToProvider', ['provider' => 'facebook']) }}" class="ml-4 fb-redir">
+                    <i class="fa fa-facebook"></i>
+                    Facebook
+                </a>
+
                 @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
