@@ -24,14 +24,14 @@ class SocialAccountController extends Controller
     public function handleProviderCallback($provider)
     {
 
-        if (!request()->has('code') || request()->has('denied')) {
-            return redirect()->route('login')->with('status', 'Something went wrong Fb!!!');
+        if ($provider == 'facebook' && !request()->has('code') || request()->has('denied')) {
+            return redirect()->route('login')->with('status', 'Something went wrong Facebook!!!');
         }
-        
+        // dd(Socialite::driver($provider), Socialite::driver($provider)->user());
         try {
             $user = Socialite::driver($provider)->user();
         } catch (Exception $e) {
-            return redirect()->route('login')->with('status', 'Something went wrong Fb!!!');
+            return redirect()->route('login')->with('status', 'Something went wrong exception Fb!!!');
         }
         
         // $authUser must return a User::class instance

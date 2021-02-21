@@ -35,4 +35,10 @@ return [
         'client_secret' => '704af9cc9237235b1e297635e952ddad',
         'redirect' => 'https://www.localhost/projects/laravel-socialite/public/login/facebook/callback',
     ],
+
+    'twitter' => [
+        'client_id' => env('TWITTER_ID'),
+        'client_secret' => env('TWITTER_SECRET_KEY'),
+        'redirect' => 'https://www.localhost/projects/laravel-socialite/public/login/twitter/callback',
+    ],
 ];

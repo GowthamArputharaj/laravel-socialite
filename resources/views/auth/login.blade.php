@@ -50,10 +50,6 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <a href="{{ route('redirectToProvider', ['provider' => 'facebook']) }}" class="ml-4 fb-redir">
-                    <i class="fa fa-facebook"></i>
-                    Facebook
-                </a>
 
                 @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
@@ -64,6 +60,18 @@
                 <x-button class="ml-3">
                     {{ __('Login') }}
                 </x-button>
+            </div>
+
+            <div class="flex items-center justify-end mt-4">
+                <a href="{{ route('redirectToProvider', ['provider' => 'facebook']) }}" class="ml-4 fb-redir">
+                    <i class="fa fa-facebook"></i>
+                    Facebook
+                </a>
+                
+                <a href="{{ route('redirectToProvider', ['provider' => 'twitter']) }}" class="ml-4 fb-redir">
+                    <i class="fa fa-twitter"></i>
+                    Twitter
+                </a>
             </div>
         </form>
     </x-auth-card>
